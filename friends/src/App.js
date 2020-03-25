@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from "redux";
 import { dataReducer as reducer } from "./reducers/dataReducer";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+import PrivateRoute  from "./components/PrivateRoute";
 
 import Login from './components/Login';
 import FriendsList from './components/FriendsList';
@@ -27,7 +28,7 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <Route exact path="/protected" component={FriendsList} />
+          <PrivateRoute exact path="/protected" component={FriendsList} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>
